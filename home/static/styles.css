@@ -1,0 +1,26 @@
+body{
+	background-color: white;
+}
+
+/* Canvas Styling */
+.sketchpadApp{
+	margin-top: 50px!important;
+	align-items: center!important
+}
+
+canvas{
+	background-color: whitesmoke;
+	border-radius: 20px
+}
+.outPut{
+	height: 300px;
+	width: 300px;
+	background-color: whitesmoke;
+	border-radius: 20px;
+	align-items: center;
+	margin-top: 35px;
+	margin-left: 48px;
+}
+.outPut-Fonts{
+	font-size: 10em;
+}

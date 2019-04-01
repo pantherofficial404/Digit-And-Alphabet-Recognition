@@ -1,0 +1,71 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'styles.css' %}">
+	</head>
+<body>
+
+<nav class="green darken-3">
+	<div class="green darken-2 nav-wrapper">
+	<a href="#" class="center black-text brand-logo">
+		Recognition
+	</a>
+	</div>
+</nav>
+
+<div class="title">
+	<h4 class="center">Simple Digit Recognition App</h4>
+</div>
+
+<div class="sketchpadApp">
+
+<div class="row center">
+	<div class="col s12 m6 l6">
+		<h6>Draw Here</h6>
+		<canvas class="sketchpad" id="sketchpad"></canvas><br><br>
+		<button type="button" name="button" class="btn waves-effect waves-light black red-text">
+			Clear All <i class="left material-icons">delete</i>
+		</button><br><br>
+		<form method="post" onsubmit="canvas()">
+            {% csrf_token %}
+            <input type="hidden" name="imageData" value="" id="imageData">
+            <button type="submit" name="button" class="btn waves-effect waves-light black green-text">
+                Recognize <i class="right material-icons">keyboard_tab</i>
+            </button>
+        </form>
+	</div>
+	<div class="col s12 m6 l6 center">
+		<div class="outPut"><br>
+			<h6>Output Here</h6>
+			<center>
+		<div class="outPut-Fonts">
+				{{prediction}}
+			</div>
+		</center>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<script>
+function canvas() {
+    image = document.getElementById("imageData")
+    canvas = document.getElementById("sketchpad")
+    image.value = canvas.toDataURL("image/png")
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{% static 'sketchpad.js' %}" charset="utf-8"></script>
+<script src="{% static 'main.js' %}" charset="utf-8"></script>
+
+</body>
+</html>
