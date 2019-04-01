@@ -13,15 +13,15 @@
 <body>
 
 <nav class="green darken-3">
-	<div class="green darken-2 nav-wrapper">
-	<a href="#" class="center black-text brand-logo">
+	<div class="blue darken-2 nav-wrapper">
+	<a href="#" class="center white-text brand-logo">
 		Recognition
 	</a>
 	</div>
 </nav>
 
 <div class="title">
-	<h4 class="center">Simple Digit Recognition App</h4>
+	<h4 class="center">Digit Recognition</h4>
 </div>
 
 <div class="sketchpadApp">
@@ -30,25 +30,23 @@
 	<div class="col s12 m6 l6">
 		<h6>Draw Here</h6>
 		<canvas class="sketchpad" id="sketchpad"></canvas><br><br>
-		<button type="button" name="button" class="btn waves-effect waves-light black red-text">
+		<button type="button" name="button" class="btn waves-effect waves-light blue white-text" onclick="sketchpad.clear()">
 			Clear All <i class="left material-icons">delete</i>
 		</button><br><br>
 		<form method="post" onsubmit="canvas()">
             {% csrf_token %}
             <input type="hidden" name="imageData" value="" id="imageData">
-            <button type="submit" name="button" class="btn waves-effect waves-light black green-text">
+            <button type="submit" name="button" class="btn waves-effect waves-light green white-text">
                 Recognize <i class="right material-icons">keyboard_tab</i>
             </button>
         </form>
 	</div>
-	<div class="col s12 m6 l6 center">
+	<div class="col s12 m6 l6">
 		<div class="outPut"><br>
 			<h6>Output Here</h6>
-			<center>
 		<div class="outPut-Fonts">
 				{{prediction}}
 			</div>
-		</center>
 		</div>
 	</div>
 </div>
